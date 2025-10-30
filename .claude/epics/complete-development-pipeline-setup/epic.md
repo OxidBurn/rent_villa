@@ -2,7 +2,7 @@
 name: complete-development-pipeline-setup
 status: in_progress
 created: 2025-10-30T17:08:51Z
-progress: 30%
+progress: 40%
 prd: .claude/prds/complete-development-pipeline-setup.md
 github: https://github.com/OxidBurn/rent_villa/issues/1
 ---
@@ -410,13 +410,9 @@ In 4 weeks:
 - [ ] #10 - Documentation & Runbooks (parallel: true)
 - [x] #2 - GitHub Actions CI Workflow (parallel: true)
 - [x] #3 - Vercel Deployment Setup (parallel: true)
-<<<<<<< HEAD
 - [x] #4 - Vitest Test Infrastructure (parallel: false)
-=======
-- [ ] #4 - Vitest Test Infrastructure (parallel: false)
->>>>>>> origin/main
-- [ ] #5 - Playwright E2E Testing (parallel: false)
-- [ ] #6 - Database & Migration Setup (parallel: true)
+- [x] #5 - Playwright E2E Testing (parallel: false)
+- [x] #6 - Database & Migration Setup (parallel: true)
 - [ ] #7 - Code Quality Tooling (parallel: false)
 - [ ] #8 - Sentry Error Tracking (parallel: true)
 - [ ] #9 - Health Check & Monitoring (parallel: true)
