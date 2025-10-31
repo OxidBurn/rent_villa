@@ -19,8 +19,5 @@ Sentry.init({
 
   integrations: [Sentry.browserTracingIntegration()],
 
-  ignoreErrors: [
-    'ResizeObserver loop limit exceeded',
-    'Non-Error promise rejection captured',
-  ],
+  ignoreErrors: ['ResizeObserver loop limit exceeded', 'Non-Error promise rejection captured'],
 })

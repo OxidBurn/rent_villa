@@ -55,9 +55,7 @@ export default function TestSentryPage() {
           >
             Test Server API Error
           </button>
-          <p className="text-sm text-gray-500 mt-1">
-            Triggers an error in a server-side API route
-          </p>
+          <p className="text-sm text-gray-500 mt-1">Triggers an error in a server-side API route</p>
         </div>
 
         <div>
@@ -67,9 +65,7 @@ export default function TestSentryPage() {
           >
             Test Manual Message
           </button>
-          <p className="text-sm text-gray-500 mt-1">
-            Manually sends an info message to Sentry
-          </p>
+          <p className="text-sm text-gray-500 mt-1">Manually sends an info message to Sentry</p>
         </div>
 
         <div>
@@ -97,8 +93,8 @@ export default function TestSentryPage() {
 
       <div className="bg-yellow-50 border border-yellow-200 p-4 rounded">
         <p className="text-sm text-yellow-800">
-          <strong>Note:</strong> In development mode, errors are logged to console but NOT sent to Sentry.
-          Deploy to staging or production to test actual Sentry integration.
+          <strong>Note:</strong> In development mode, errors are logged to console but NOT sent to
+          Sentry. Deploy to staging or production to test actual Sentry integration.
         </p>
       </div>
     </div>

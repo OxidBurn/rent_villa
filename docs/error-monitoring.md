@@ -134,19 +134,16 @@ Click buttons to trigger test errors. In development mode:
 ### Do's
 
 1. **Add context to errors:**
-
    - Use tags for categorization
    - Add breadcrumbs to track user flow
    - Include user IDs (non-PII)
 
 2. **Handle errors gracefully:**
-
    - Show user-friendly error messages
    - Provide recovery actions (try again button)
    - Never expose technical details to users
 
 3. **Monitor and triage:**
-
    - Review new errors within 24 hours
    - Prioritize by frequency and impact
    - Resolve stale issues promptly
@@ -159,13 +156,11 @@ Click buttons to trigger test errors. In development mode:
 ### Don'ts
 
 1. **Don't capture sensitive data:**
-
    - Never log passwords, tokens, or API keys
    - Sanitize user input before logging
    - Avoid logging PII (personal identifiable information)
 
 2. **Don't ignore errors:**
-
    - Don't mark errors as resolved without fixing
    - Don't ignore recurring errors
    - Don't leave errors unassigned for too long
@@ -311,13 +306,11 @@ Configure alert rules in Sentry dashboard:
 ### Recommended Alerts
 
 1. **New Issue Alert:**
-
    - Trigger: When a new issue is created
    - Action: Notify team Slack channel
    - Frequency: Immediately
 
 2. **High Frequency Alert:**
-
    - Trigger: Issue occurs >100 times in 1 hour
    - Action: Notify on-call engineer
    - Frequency: At most once per hour
@@ -332,19 +325,16 @@ Configure alert rules in Sentry dashboard:
 For new team members or new environments:
 
 1. **Create Sentry Account:**
-
    - Visit sentry.io and sign up
    - Create organization (or get invited)
 
 2. **Create Project:**
-
    - Click "Create Project"
    - Platform: Next.js
    - Project name: `rent-villa-nextjs`
    - Copy DSN value
 
 3. **Configure Environment Variables:**
-
    - Add SENTRY_DSN to Vercel
    - Add NEXT_PUBLIC_SENTRY_DSN to Vercel
    - Create auth token in Sentry settings
