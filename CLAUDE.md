@@ -21,6 +21,7 @@ npm run dev      # Start development server (http://localhost:3000)
 npm run build    # Build for production
 npm run start    # Start production server
 npm run lint     # Run ESLint
+npm test         # Run tests (Vitest - to be configured in #4)
 ```
 
 ## Project Structure
@@ -52,6 +53,34 @@ This project uses Next.js App Router (not Pages Router). Key concepts:
 
 - **Server Components** (default): Fetch data directly, access backend resources, no useState/useEffect
 - **Client Components** (`"use client"`): Use React hooks, handle interactivity, access browser APIs
+
+## CI/CD Pipeline
+
+**Status:** Operational (as of 2025-10-30)
+
+### GitHub Actions CI
+
+- **Workflow:** `.github/workflows/ci.yml`
+- **Triggers:** Push to main, all pull requests
+- **Jobs:** Lint, Type Check, Test, Build (run in parallel)
+- **Runtime:** <5 minutes
+- **Badge:** [![CI](https://github.com/OxidBurn/rent_villa/actions/workflows/ci.yml/badge.svg)](https://github.com/OxidBurn/rent_villa/actions/workflows/ci.yml)
+
+### Vercel Deployment
+
+- **Configuration:** `vercel.json`, `.vercelignore`
+- **Production:** Auto-deploy on push to `main`
+- **Preview:** Unique URL per PR
+- **Documentation:** See `docs/deployment.md`
+
+### Pipeline Epic
+
+- **Epic:** [#1 - Complete Development Pipeline Setup](https://github.com/OxidBurn/rent_villa/issues/1)
+- **Progress:** 2/10 tasks completed (20%)
+- **Completed:**
+  - #2: GitHub Actions CI Workflow ✅
+  - #3: Vercel Deployment Setup ✅
+- **Next:** Testing infrastructure (#4, #5), Database (#6), Code quality (#7)
 
 ## Development Guidelines
 
