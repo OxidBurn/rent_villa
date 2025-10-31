@@ -112,7 +112,7 @@ This checklist guides you through the first production deployment of Rent Villa.
   - Source maps uploaded to Sentry
   - Edge functions deployed
   - Deployment marked as "Ready"
-  - Deployment ID recorded: ******\_\_******
+  - Deployment ID recorded: **\*\***\_\_**\*\***
 
 ### Initial Validation
 
@@ -169,6 +169,7 @@ This checklist guides you through the first production deployment of Rent Villa.
   - No performance degradation vs staging
 
 - [ ] **Security Headers**
+
   ```bash
   curl -I https://[production-domain]
   ```
@@ -264,7 +265,7 @@ This checklist guides you through the first production deployment of Rent Villa.
 ### Rollback Testing
 
 - [ ] **Test Rollback Procedure**
-  - Document current deployment ID: ******\_\_******
+  - Document current deployment ID: **\*\***\_\_**\*\***
   - Initiate rollback to previous deployment
   - Verify rollback completes successfully
   - Test application still works after rollback
@@ -431,14 +432,14 @@ vercel promote <previous-deployment-url> --prod
 
 ## Checklist Completion
 
-**Deployment Date**: ******\_\_\_******
-**Deployment Time**: ******\_\_\_******
-**Deployed By**: ******\_\_\_******
-**Deployment ID**: ******\_\_\_******
+**Deployment Date**: **\*\***\_\_\_**\*\***
+**Deployment Time**: **\*\***\_\_\_**\*\***
+**Deployed By**: **\*\***\_\_\_**\*\***
+**Deployment ID**: **\*\***\_\_\_**\*\***
 **Status**: [ ] Success [ ] Partial Success [ ] Failed [ ] Rolled Back
 
 **Sign-off:**
 
-- Deployer: ******\_\_\_****** Date: ******\_\_\_******
-- Tech Lead: ******\_\_\_****** Date: ******\_\_\_******
-- Product Manager: ******\_\_\_****** Date: ******\_\_\_******
+- Deployer: **\*\***\_\_\_**\*\*** Date: **\*\***\_\_\_**\*\***
+- Tech Lead: **\*\***\_\_\_**\*\*** Date: **\*\***\_\_\_**\*\***
+- Product Manager: **\*\***\_\_\_**\*\*** Date: **\*\***\_\_\_**\*\***

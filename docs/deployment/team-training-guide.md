@@ -515,8 +515,8 @@ To be certified for production deployments, team members must:
 
 **Certification Sign-off:**
 
-Trainee: ******\_\_\_****** Date: ******\_\_\_******
-Supervisor: ******\_\_\_****** Date: ******\_\_\_******
+Trainee: **\*\***\_\_\_**\*\*** Date: **\*\***\_\_\_**\*\***
+Supervisor: **\*\***\_\_\_**\*\*** Date: **\*\***\_\_\_**\*\***
 
 ## Ongoing Training
 
