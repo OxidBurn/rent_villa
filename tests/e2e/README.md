@@ -5,21 +5,25 @@ End-to-end (E2E) tests validate complete user journeys in real browser environme
 ## Running Tests Locally
 
 ### Run all E2E tests
+
 ```bash
 npm run test:e2e
 ```
 
 ### Run in UI mode (interactive)
+
 ```bash
 npm run test:e2e:ui
 ```
 
 ### Debug specific test
+
 ```bash
 npm run test:e2e:debug
 ```
 
 ### View last test report
+
 ```bash
 npm run test:e2e:report
 ```
@@ -29,13 +33,15 @@ npm run test:e2e:report
 ### Test Structure
 
 Tests are organized by page or feature:
+
 - One spec file per page/feature
 - Use descriptive test names
 - Group related tests with `test.describe()`
 
 Example test structure:
+
 ```typescript
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test.describe('Feature Name', () => {
   test('should perform specific action', async ({ page }) => {
@@ -53,6 +59,7 @@ test.describe('Feature Name', () => {
    - Use `data-testid` attributes for complex elements
 
 2. **Wait for elements explicitly**
+
    ```typescript
    await page.getByRole('button').click()
    await expect(page.getByText('Success')).toBeVisible()
@@ -71,17 +78,20 @@ test.describe('Feature Name', () => {
 Playwright recommends this priority for locators:
 
 1. **Role-based** (most robust):
+
    ```typescript
    page.getByRole('button', { name: 'Submit' })
    page.getByRole('heading', { level: 1 })
    ```
 
 2. **Label-based** (for forms):
+
    ```typescript
    page.getByLabel('Email address')
    ```
 
 3. **Text-based**:
+
    ```typescript
    page.getByText('Welcome')
    ```
@@ -94,6 +104,7 @@ Playwright recommends this priority for locators:
 ### Example Tests
 
 #### Testing a form submission
+
 ```typescript
 test('should submit booking form', async ({ page }) => {
   await page.goto('/booking')
@@ -107,6 +118,7 @@ test('should submit booking form', async ({ page }) => {
 ```
 
 #### Testing navigation
+
 ```typescript
 test('should navigate to properties page', async ({ page }) => {
   await page.goto('/')
@@ -119,6 +131,7 @@ test('should navigate to properties page', async ({ page }) => {
 ```
 
 #### Testing responsive design
+
 ```typescript
 test('should display mobile menu on small screens', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 667 })
@@ -134,6 +147,7 @@ test('should display mobile menu on small screens', async ({ page }) => {
 ### Browser Configuration
 
 The `playwright.config.ts` file defines:
+
 - **Test directory**: `./tests/e2e`
 - **Base URL**: `http://localhost:3000` (or `BASE_URL` env variable)
 - **Browsers**: Chromium, Firefox, WebKit
@@ -143,6 +157,7 @@ The `playwright.config.ts` file defines:
 ### CI Configuration
 
 E2E tests run in CI:
+
 - Only on pull requests (not on direct pushes)
 - After all other checks pass (lint, typecheck, test, build)
 - Using Chromium only (optimized for speed)
@@ -151,14 +166,17 @@ E2E tests run in CI:
 ## CI Execution
 
 ### When tests run
+
 - Pull requests to `main` branch
 - After lint, typecheck, test, and build jobs succeed
 
 ### What gets tested
+
 - Chromium browser only (90% of issues)
 - All test files in `tests/e2e/**/*.spec.ts`
 
 ### Test artifacts
+
 - Test reports available as GitHub Actions artifacts
 - Retained for 7 days
 - Downloadable from PR checks page
@@ -168,11 +186,13 @@ E2E tests run in CI:
 ### Test fails locally but passes in CI
 
 **Possible causes:**
+
 - Viewport size differences
 - Environment variable differences
 - Timing issues
 
 **Solutions:**
+
 ```typescript
 await page.waitForLoadState('networkidle')
 await page.waitForSelector('[data-testid="element"]')
@@ -181,9 +201,11 @@ await page.waitForSelector('[data-testid="element"]')
 ### Test is flaky
 
 **Solutions:**
+
 - Add explicit waits instead of relying on auto-waiting
 - Use `toBeVisible()` instead of `toHaveCount()`
 - Increase timeout for specific actions:
+
 ```typescript
 await expect(element).toBeVisible({ timeout: 10000 })
 ```
@@ -191,6 +213,7 @@ await expect(element).toBeVisible({ timeout: 10000 })
 ### Browser not found
 
 **Solution:**
+
 ```bash
 npx playwright install chromium
 ```
@@ -198,6 +221,7 @@ npx playwright install chromium
 ### Port already in use
 
 If dev server fails to start:
+
 ```bash
 kill $(lsof -t -i:3000)
 ```

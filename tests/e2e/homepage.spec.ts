@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test.describe('Homepage', () => {
   test('should load successfully', async ({ page }) => {
@@ -27,7 +27,10 @@ test.describe('Homepage', () => {
 
     const templatesLink = page.getByRole('link', { name: /templates/i })
     await expect(templatesLink).toBeVisible()
-    await expect(templatesLink).toHaveAttribute('href', expect.stringContaining('vercel.com/templates'))
+    await expect(templatesLink).toHaveAttribute(
+      'href',
+      expect.stringContaining('vercel.com/templates')
+    )
 
     const learningLink = page.getByRole('link', { name: /learning/i })
     await expect(learningLink).toBeVisible()

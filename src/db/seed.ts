@@ -1,5 +1,5 @@
 import { db } from './client'
-import { users, properties } from './schema'
+import { properties, users } from './schema'
 
 async function seed() {
   console.log('Seeding database...')

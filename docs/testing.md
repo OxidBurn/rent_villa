@@ -110,7 +110,7 @@ The Vitest configuration is located at the project root and includes:
 
 - React plugin for JSX/TSX support
 - jsdom environment for DOM APIs
-- Path aliases matching tsconfig.json (@/*)
+- Path aliases matching tsconfig.json (@/\*)
 - Global test utilities (describe, it, expect)
 - Coverage configuration
 
@@ -158,7 +158,7 @@ Mock external dependencies using Vitest's vi utilities:
 import { vi } from 'vitest'
 
 vi.mock('./api', () => ({
-  fetchData: vi.fn(() => Promise.resolve({ data: 'mock' }))
+  fetchData: vi.fn(() => Promise.resolve({ data: 'mock' })),
 }))
 ```
 
@@ -188,7 +188,7 @@ The CI workflow will fail if any tests fail, preventing broken code from being m
 
 ### Path Alias Issues
 
-If path aliases (@/*) don't resolve in tests, verify:
+If path aliases (@/\*) don't resolve in tests, verify:
 
 1. `vitest.config.ts` includes the resolve.alias configuration
 2. Paths match those in `tsconfig.json`

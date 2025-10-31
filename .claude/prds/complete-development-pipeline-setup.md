@@ -36,6 +36,7 @@ Establish a comprehensive, automated development pipeline for Rent Villa that en
 ### Impact of Inaction
 
 Without a proper pipeline:
+
 - Bugs ship to production undetected
 - Development velocity slows due to manual processes
 - Team lacks confidence in deployments
@@ -48,34 +49,43 @@ Without a proper pipeline:
 ### Primary Personas
 
 #### 1. Developer (Primary User)
+
 **Goals:**
+
 - Ship features confidently without breaking production
 - Get fast feedback on code quality
 - Focus on feature development, not deployment mechanics
 
 **Pain Points:**
+
 - Uncertain if changes will break production
 - Slow manual testing processes
 - Anxiety about deployments
 
 #### 2. Tech Lead / DevOps
+
 **Goals:**
+
 - Ensure code quality standards are met
 - Enable team to move fast safely
 - Maintain production stability
 
 **Pain Points:**
+
 - Manual review burden is high
 - No automated enforcement of standards
 - Production incidents require manual investigation
 
 #### 3. Product Manager
+
 **Goals:**
+
 - Ship features to users quickly
 - Confidence that releases work as expected
 - Clear visibility into deployment status
 
 **Pain Points:**
+
 - Unclear when features will be in production
 - Frequent rollbacks due to bugs
 - Long lead time from development to user value
@@ -83,6 +93,7 @@ Without a proper pipeline:
 ### User Journeys
 
 #### Journey 1: Developer Creates Feature
+
 1. Developer creates feature branch from `main`
 2. Writes code for new property listing feature
 3. Commits and pushes to GitHub
@@ -107,12 +118,14 @@ Without a proper pipeline:
 12. Monitors deployment via dashboard
 
 **Acceptance Criteria:**
+
 - ✅ Total time from commit to staging: <15 minutes
 - ✅ Developer sees pass/fail status within 5 minutes
 - ✅ Zero manual deployment steps required
 - ✅ Automatic rollback if health checks fail
 
 #### Journey 2: Database Schema Change
+
 1. Developer needs to add `properties` table
 2. Creates migration file using migration tool
 3. Tests migration locally
@@ -130,12 +143,14 @@ Without a proper pipeline:
 8. Migration is tracked and logged
 
 **Acceptance Criteria:**
+
 - ✅ Migrations are automatically applied in correct order
 - ✅ Rollback capability exists for failed migrations
 - ✅ No manual database commands required
 - ✅ Migration history is tracked and visible
 
 #### Journey 3: Production Bug Discovered
+
 1. Error monitoring alerts team of production error
 2. Developer identifies bug in recent deployment
 3. Developer clicks "Rollback" in deployment dashboard
@@ -148,6 +163,7 @@ Without a proper pipeline:
 7. Standard pipeline runs, deploys fix
 
 **Acceptance Criteria:**
+
 - ✅ Rollback completes in <5 minutes
 - ✅ One-click rollback process
 - ✅ Automatic health check verification
@@ -158,11 +174,13 @@ Without a proper pipeline:
 ### Functional Requirements
 
 #### FR1: Continuous Integration (CI)
+
 **Priority:** P0 (Must Have)
 
 **Description:** Automated checks run on every commit and pull request.
 
 **Capabilities:**
+
 - Run TypeScript compiler (type checking)
 - Run ESLint (code style and quality)
 - Run Prettier (code formatting check)
@@ -173,17 +191,20 @@ Without a proper pipeline:
 - Check for security vulnerabilities in dependencies
 
 **Acceptance Criteria:**
+
 - ✅ All checks complete within 5 minutes
 - ✅ Clear pass/fail status visible in GitHub PR
 - ✅ Failing checks block PR merge
 - ✅ Coverage report visible as PR comment
 
 #### FR2: Continuous Deployment (CD)
+
 **Priority:** P0 (Must Have)
 
 **Description:** Automated deployment to staging and production environments.
 
 **Capabilities:**
+
 - Automatic deployment to staging on merge to `main`
 - One-click promotion to production
 - Deploy preview environments for PRs
@@ -192,17 +213,20 @@ Without a proper pipeline:
 - Deployment notifications (Slack/email)
 
 **Acceptance Criteria:**
+
 - ✅ Staging deployment completes within 10 minutes
 - ✅ PR previews available within 8 minutes
 - ✅ Zero-downtime deployments
 - ✅ Automatic rollback if health checks fail
 
 #### FR3: Test Automation Framework
+
 **Priority:** P0 (Must Have)
 
 **Description:** Comprehensive testing setup for different test types.
 
 **Capabilities:**
+
 - Unit test runner (Vitest or Jest)
 - Component testing for React components
 - Integration testing for API routes
@@ -211,17 +235,20 @@ Without a proper pipeline:
 - Test coverage tracking and reporting
 
 **Acceptance Criteria:**
+
 - ✅ Tests run in <3 minutes for unit tests
 - ✅ E2E tests run in <10 minutes
 - ✅ Code coverage threshold: 70% (configurable)
 - ✅ Failed tests provide clear error messages
 
 #### FR4: Database Migration Pipeline
+
 **Priority:** P1 (Should Have)
 
 **Description:** Automated database schema versioning and migration.
 
 **Capabilities:**
+
 - Migration file generation
 - Automatic migration on deployment
 - Rollback capability for migrations
@@ -230,17 +257,20 @@ Without a proper pipeline:
 - Database backup before migrations
 
 **Acceptance Criteria:**
+
 - ✅ Migrations applied automatically on deploy
 - ✅ Migration status visible in admin dashboard
 - ✅ One-click rollback for failed migrations
 - ✅ No manual SQL execution required
 
 #### FR5: Environment Management
+
 **Priority:** P0 (Must Have)
 
 **Description:** Clear separation and management of dev, staging, and production environments.
 
 **Capabilities:**
+
 - Environment-specific configuration (.env files)
 - Secure secret management
 - Environment parity (staging mirrors production)
@@ -248,17 +278,20 @@ Without a proper pipeline:
 - Environment status dashboard
 
 **Acceptance Criteria:**
+
 - ✅ No secrets in code repository
 - ✅ Each environment has unique database
 - ✅ Configuration changes don't require code deploy
 - ✅ Clear documentation of environment differences
 
 #### FR6: Monitoring & Observability
+
 **Priority:** P1 (Should Have)
 
 **Description:** Production monitoring and error tracking.
 
 **Capabilities:**
+
 - Error tracking (Sentry or similar)
 - Performance monitoring (APM)
 - Log aggregation and search
@@ -267,17 +300,20 @@ Without a proper pipeline:
 - Deployment tracking and release tagging
 
 **Acceptance Criteria:**
+
 - ✅ Errors reported with stack traces and context
 - ✅ Performance metrics tracked (TTFB, FCP, LCP)
 - ✅ Alerts sent within 1 minute of critical error
 - ✅ Logs searchable for 30 days
 
 #### FR7: Code Quality Gates
+
 **Priority:** P0 (Must Have)
 
 **Description:** Automated enforcement of code quality standards.
 
 **Capabilities:**
+
 - TypeScript strict mode enforcement
 - ESLint rules enforcement
 - Code formatting (Prettier)
@@ -287,17 +323,20 @@ Without a proper pipeline:
 - Import order validation
 
 **Acceptance Criteria:**
+
 - ✅ PRs cannot merge with linting errors
 - ✅ Type errors block deployment
 - ✅ Vulnerabilities flagged in PR
 - ✅ Auto-fix available for formatting issues
 
 #### FR8: Preview Environments
+
 **Priority:** P1 (Should Have)
 
 **Description:** Temporary environments for PR review and testing.
 
 **Capabilities:**
+
 - Unique URL for each PR
 - Full application functionality
 - Isolated database (optional)
@@ -305,6 +344,7 @@ Without a proper pipeline:
 - Shareable links for stakeholder review
 
 **Acceptance Criteria:**
+
 - ✅ Preview URL visible in PR within 8 minutes
 - ✅ Preview reflects latest code changes
 - ✅ Environments cleaned up within 24 hours of PR close
@@ -313,18 +353,21 @@ Without a proper pipeline:
 ### Non-Functional Requirements
 
 #### NFR1: Performance
+
 - CI pipeline completes in <5 minutes (90th percentile)
 - CD pipeline completes in <15 minutes (90th percentile)
 - Test suite runs in <10 minutes
 - Deployment downtime: <30 seconds (blue-green deployment)
 
 #### NFR2: Reliability
+
 - CI/CD pipeline uptime: 99.9%
 - Failed deployments automatically roll back
 - No data loss during deployments
 - Idempotent deployment scripts
 
 #### NFR3: Security
+
 - Secrets stored in secure vault (GitHub Secrets, Vercel Environment Variables)
 - No credentials in code or logs
 - Signed commits recommended
@@ -332,18 +375,21 @@ Without a proper pipeline:
 - Vulnerability scanning on dependencies
 
 #### NFR4: Scalability
+
 - Pipeline supports 50+ PRs per day
 - Parallel test execution
 - Concurrent deployments to different environments
 - Horizontal scaling of CI runners if needed
 
 #### NFR5: Maintainability
+
 - Pipeline configuration as code (YAML)
 - Clear documentation for all pipeline steps
 - Easy to update and extend
 - Version controlled pipeline definitions
 
 #### NFR6: Observability
+
 - Real-time pipeline status visibility
 - Deployment history and logs retained for 90 days
 - Metrics on pipeline performance
@@ -354,18 +400,21 @@ Without a proper pipeline:
 ### Key Metrics
 
 #### Development Velocity
+
 - **Deployment Frequency:** 5+ deployments per week (target: daily)
 - **Lead Time for Changes:** <4 hours from commit to production
 - **PR Merge Time:** <24 hours average
 - **Build Success Rate:** >95%
 
 #### Quality & Reliability
+
 - **Change Failure Rate:** <10% (deployments requiring rollback)
 - **Mean Time to Recovery (MTTR):** <30 minutes
 - **Test Coverage:** >70% for critical paths
 - **Production Incidents:** <2 per month
 
 #### Automation
+
 - **Manual Deployment Steps:** 0
 - **Deployment Time:** <15 minutes to staging
 - **Test Execution Time:** <10 minutes
@@ -388,46 +437,56 @@ Without a proper pipeline:
 ## Technical Architecture
 
 ### CI/CD Platform
+
 **Recommendation:** GitHub Actions (free for public repos, well-integrated)
 
 **Alternatives:**
+
 - CircleCI (more features, paid)
 - GitLab CI (if switching from GitHub)
 - Vercel CI (if using Vercel for deployment)
 
 ### Deployment Platform
+
 **Recommendation:** Vercel (optimized for Next.js, zero-config)
 
 **Alternatives:**
+
 - AWS (Amplify, ECS, or Lambda)
 - Docker + Kubernetes (more control, higher complexity)
 - Railway, Render (simpler alternatives)
 
 ### Testing Stack
+
 - **Unit/Integration:** Vitest (faster than Jest, better Next.js support)
 - **E2E:** Playwright (reliable, multi-browser, good DX)
 - **Component:** React Testing Library
 
 ### Database
+
 **Recommendation:** PostgreSQL on Vercel Postgres or Supabase
 
 **Migration Tool:** Drizzle ORM or Prisma Migrate
 
 ### Monitoring
+
 - **Error Tracking:** Sentry (free tier available)
 - **Analytics:** Vercel Analytics (included with Vercel)
 - **Logs:** Vercel Logs or Datadog
 
 ### Secret Management
+
 - GitHub Secrets (for CI)
 - Vercel Environment Variables (for deployment)
 
 ## Implementation Phases
 
 ### Phase 1: Foundation (Week 1-2)
+
 **Goal:** Basic CI/CD with essential quality gates
 
 **Deliverables:**
+
 - GitHub Actions workflow for CI
 - TypeScript + ESLint checks on every PR
 - Build verification on every commit
@@ -435,14 +494,17 @@ Without a proper pipeline:
 - Environment variable setup (dev, staging, production)
 
 **Success Criteria:**
+
 - ✅ Every PR shows pass/fail status
 - ✅ Main branch auto-deploys to staging
 - ✅ Type errors block merges
 
 ### Phase 2: Testing Infrastructure (Week 3-4)
+
 **Goal:** Comprehensive automated testing
 
 **Deliverables:**
+
 - Vitest setup for unit tests
 - Playwright setup for E2E tests
 - Coverage reporting in PRs
@@ -450,14 +512,17 @@ Without a proper pipeline:
 - CI runs all tests automatically
 
 **Success Criteria:**
+
 - ✅ Test suite runs in <10 minutes
 - ✅ Coverage visible in PRs
 - ✅ E2E tests run on every deploy to staging
 
 ### Phase 3: Database Pipeline (Week 5)
+
 **Goal:** Automated database migrations
 
 **Deliverables:**
+
 - Database migration tool setup (Drizzle/Prisma)
 - Migration CI validation
 - Automatic migrations on deploy
@@ -465,14 +530,17 @@ Without a proper pipeline:
 - Seed data for development
 
 **Success Criteria:**
+
 - ✅ Migrations run automatically
 - ✅ Rollback works reliably
 - ✅ Development database seedable with one command
 
 ### Phase 4: Production Pipeline (Week 6)
+
 **Goal:** Production deployment and monitoring
 
 **Deliverables:**
+
 - Production deployment workflow
 - Blue-green or canary deployment strategy
 - Automatic rollback on failure
@@ -480,15 +548,18 @@ Without a proper pipeline:
 - Deployment notifications
 
 **Success Criteria:**
+
 - ✅ One-click production deployment
 - ✅ Zero-downtime deployments
 - ✅ Automatic rollback works
 - ✅ Team notified of deployments
 
 ### Phase 5: Monitoring & Observability (Week 7-8)
+
 **Goal:** Full production visibility
 
 **Deliverables:**
+
 - Error tracking (Sentry)
 - Performance monitoring
 - Log aggregation
@@ -496,15 +567,18 @@ Without a proper pipeline:
 - Deployment tracking
 
 **Success Criteria:**
+
 - ✅ Errors visible within 1 minute
 - ✅ Performance metrics tracked
 - ✅ Alerts sent for critical issues
 - ✅ Logs searchable
 
 ### Phase 6: Advanced Features (Week 9-10)
+
 **Goal:** Enhanced developer experience
 
 **Deliverables:**
+
 - PR preview environments
 - Visual regression testing
 - Performance budgets
@@ -512,6 +586,7 @@ Without a proper pipeline:
 - Security scanning
 
 **Success Criteria:**
+
 - ✅ Each PR has preview URL
 - ✅ Visual regressions caught automatically
 - ✅ Dependencies stay up to date
@@ -520,6 +595,7 @@ Without a proper pipeline:
 ## Constraints & Assumptions
 
 ### Technical Constraints
+
 - Must work with Next.js 16 App Router
 - Must support TypeScript strict mode
 - Must integrate with GitHub (primary VCS)
@@ -527,23 +603,27 @@ Without a proper pipeline:
 - Must work on macOS (primary dev environment)
 
 ### Timeline Constraints
+
 - Should be completed within 10 weeks (2.5 months)
 - Phase 1-3 are critical path (must complete first 5 weeks)
 - Can be implemented incrementally while building features
 
 ### Resource Constraints
+
 - 1-3 developers available
 - Limited budget for paid tools (prefer free tiers)
 - No dedicated DevOps engineer (must be developer-friendly)
 - No existing infrastructure to migrate from
 
 ### Business Constraints
+
 - Must not block feature development entirely
 - Must improve developer experience, not hinder it
 - Should enable faster releases, not slow them down
 - ROI should be visible within first month
 
 ### Assumptions
+
 1. Team is comfortable with Git workflows (branching, PRs)
 2. Developers have basic understanding of CI/CD concepts
 3. GitHub is the source of truth for code
@@ -599,7 +679,9 @@ Without a proper pipeline:
     - Reason: Basic monitoring sufficient initially
 
 ### Future Considerations
+
 These may be added in future iterations:
+
 - GitOps workflow (ArgoCD, Flux)
 - Advanced deployment strategies (canary analysis)
 - Multi-cloud redundancy
@@ -684,11 +766,13 @@ These may be added in future iterations:
 ### High Risks
 
 #### Risk 1: Pipeline Complexity Slows Development
+
 **Probability:** Medium | **Impact:** High
 
 **Description:** Overly complex CI/CD setup frustrates developers and slows velocity.
 
 **Mitigation:**
+
 - Start simple, add complexity incrementally
 - Optimize for speed (<5 min CI runs)
 - Provide clear error messages
@@ -696,11 +780,13 @@ These may be added in future iterations:
 - Regular developer feedback sessions
 
 #### Risk 2: Test Suite Becomes Slow
+
 **Probability:** High | **Impact:** Medium
 
 **Description:** As tests grow, CI runtime increases, blocking PRs.
 
 **Mitigation:**
+
 - Parallel test execution
 - Separate unit tests (fast) from E2E (slow)
 - Smart test selection (only run affected tests)
@@ -708,11 +794,13 @@ These may be added in future iterations:
 - Set hard timeout limits
 
 #### Risk 3: Deployment Failures Block Production
+
 **Probability:** Medium | **Impact:** High
 
 **Description:** Critical bug in pipeline prevents emergency deployments.
 
 **Mitigation:**
+
 - Manual override capability for emergencies
 - Multiple rollback mechanisms
 - Pipeline versioning and rollback
@@ -722,11 +810,13 @@ These may be added in future iterations:
 ### Medium Risks
 
 #### Risk 4: Secret Exposure
+
 **Probability:** Low | **Impact:** High
 
 **Description:** Secrets accidentally leaked in logs or code.
 
 **Mitigation:**
+
 - Secret scanning in CI
 - .env files in .gitignore
 - Audit logs for secret access
@@ -734,11 +824,13 @@ These may be added in future iterations:
 - Automated secret rotation
 
 #### Risk 5: Database Migration Failures
+
 **Probability:** Medium | **Impact:** Medium
 
 **Description:** Migration corrupts production data.
 
 **Mitigation:**
+
 - Automatic backup before migrations
 - Rollback testing for every migration
 - Staging environment testing mandatory
@@ -746,11 +838,13 @@ These may be added in future iterations:
 - Database transaction wrapping
 
 #### Risk 6: Cost Overruns
+
 **Probability:** Low | **Impact:** Medium
 
 **Description:** CI/CD costs exceed budget.
 
 **Mitigation:**
+
 - Use free tiers initially (GitHub Actions, Vercel)
 - Monitor usage closely
 - Set billing alerts
@@ -760,11 +854,13 @@ These may be added in future iterations:
 ### Low Risks
 
 #### Risk 7: Learning Curve
+
 **Probability:** High | **Impact:** Low
 
 **Description:** Team unfamiliar with tools/workflows.
 
 **Mitigation:**
+
 - Comprehensive documentation
 - Pair programming during setup
 - Video walkthroughs

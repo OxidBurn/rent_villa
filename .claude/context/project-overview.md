@@ -14,11 +14,13 @@ author: Claude Code PM System
 ## Current State
 
 ### Development Stage
+
 - **Phase:** Initial setup completed
 - **Status:** Fresh Next.js 16 project initialized
 - **Progress:** 5% complete (infrastructure only)
 
 ### What Exists Now
+
 1. ✅ Next.js 16 App Router project scaffold
 2. ✅ TypeScript 5 configuration
 3. ✅ Tailwind CSS 4 styling setup
@@ -28,6 +30,7 @@ author: Claude Code PM System
 7. ✅ Development environment ready
 
 ### What Doesn't Exist Yet
+
 - ❌ Database integration
 - ❌ Authentication system
 - ❌ Property management features
@@ -42,6 +45,7 @@ author: Claude Code PM System
 ### Phase 1: MVP (Not Yet Implemented)
 
 #### Property Management
+
 - Property CRUD operations
 - Property details (address, type, size, amenities)
 - Property photos upload and gallery
@@ -49,6 +53,7 @@ author: Claude Code PM System
 - Property search and filtering
 
 #### Tenant Management
+
 - Tenant profiles with contact information
 - Tenant document storage
 - Tenant history and notes
@@ -56,6 +61,7 @@ author: Claude Code PM System
 - Tenant search
 
 #### Lease Management
+
 - Lease agreement creation
 - Lease term tracking (start, end, renewal dates)
 - Rent amount and payment schedule
@@ -64,12 +70,14 @@ author: Claude Code PM System
 - Renewal reminders
 
 #### Dashboard
+
 - Portfolio summary (total properties, occupied, vacant)
 - Upcoming lease renewals
 - Recent activity feed
 - Quick actions (add property, add tenant)
 
 #### Authentication & Users
+
 - User registration and login
 - Password reset functionality
 - User profile management
@@ -78,6 +86,7 @@ author: Claude Code PM System
 ### Phase 2: Enhancement (Planned)
 
 #### Financial Management
+
 - Rent payment tracking
 - Income recording
 - Expense tracking
@@ -85,6 +94,7 @@ author: Claude Code PM System
 - Payment status indicators
 
 #### Maintenance Management
+
 - Maintenance request logging
 - Work order creation
 - Vendor information
@@ -92,6 +102,7 @@ author: Claude Code PM System
 - Priority levels
 
 #### Document Management
+
 - Centralized document library
 - Document categorization
 - Document templates
@@ -99,6 +110,7 @@ author: Claude Code PM System
 - Document expiration tracking
 
 #### Notifications
+
 - Email notifications
 - In-app notifications
 - Reminder system (lease renewals, payments)
@@ -107,18 +119,21 @@ author: Claude Code PM System
 ### Phase 3: Advanced (Future)
 
 #### Tenant Portal
+
 - Tenant login and dashboard
 - Lease document access
 - Maintenance request submission
 - Payment history view
 
 #### Payment Processing
+
 - Online rent payment
 - Payment gateway integration (Stripe)
 - Automatic payment processing
 - Receipt generation
 
 #### Analytics & Reporting
+
 - Occupancy rate trends
 - Revenue analytics
 - Expense analysis
@@ -126,6 +141,7 @@ author: Claude Code PM System
 - Custom report builder
 
 #### Communication Hub
+
 - Messaging system (landlord ↔ tenant)
 - Announcement broadcasting
 - SMS notifications
@@ -134,9 +150,11 @@ author: Claude Code PM System
 ## Integration Points
 
 ### Current Integrations
+
 - None yet (fresh project)
 
 ### Planned Integrations
+
 - **Database:** PostgreSQL or MySQL (TBD)
 - **File Storage:** AWS S3 or Cloudinary (for photos/documents)
 - **Email Service:** SendGrid or AWS SES (for notifications)
@@ -145,6 +163,7 @@ author: Claude Code PM System
 - **Maps:** Google Maps API (for property locations)
 
 ### Potential Future Integrations
+
 - Accounting software (QuickBooks, Xero)
 - Credit check services
 - Background check services
@@ -154,6 +173,7 @@ author: Claude Code PM System
 ## Technical Architecture
 
 ### Frontend
+
 - **Framework:** Next.js 16 App Router
 - **UI Library:** React 19
 - **Language:** TypeScript 5
@@ -161,6 +181,7 @@ author: Claude Code PM System
 - **Component Strategy:** Mix of Server and Client Components
 
 ### Backend (Planned)
+
 - **API:** Next.js API Routes (Route Handlers)
 - **Database:** Relational DB (PostgreSQL/MySQL)
 - **ORM:** Prisma or Drizzle (TBD)
@@ -168,6 +189,7 @@ author: Claude Code PM System
 - **File Upload:** Server actions or API routes
 
 ### Deployment (Planned)
+
 - **Platform:** Vercel (optimized for Next.js)
 - **Database Hosting:** Vercel Postgres or PlanetScale
 - **CDN:** Built-in with Vercel
@@ -176,29 +198,37 @@ author: Claude Code PM System
 ## Data Models (Planned Schema)
 
 ### Property
+
 - ID, address, type, units, size, amenities, photos, status, created_at, updated_at
 
 ### Tenant
+
 - ID, name, email, phone, emergency_contact, lease_id, documents, notes, created_at
 
 ### Lease
+
 - ID, property_id, tenant_id, start_date, end_date, rent_amount, deposit, status, terms
 
 ### Payment
+
 - ID, lease_id, amount, due_date, paid_date, status, method
 
 ### Maintenance
+
 - ID, property_id, description, priority, status, assigned_to, created_at, resolved_at
 
 ### Document
+
 - ID, entity_type (property/tenant/lease), entity_id, name, type, url, uploaded_at
 
 ### User
+
 - ID, email, name, role, preferences, created_at
 
 ## User Flows
 
 ### Key Workflows
+
 1. **Property Onboarding:** Add property → Upload photos → Set details → Activate
 2. **Tenant Registration:** Select property → Add tenant info → Upload documents → Create lease
 3. **Lease Renewal:** View expiring leases → Review tenant → Update terms → Generate new lease

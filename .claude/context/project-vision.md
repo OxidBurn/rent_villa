@@ -18,30 +18,35 @@ Empower property managers and landlords to operate more efficiently, make data-d
 ## Core Values
 
 ### 1. Simplicity
+
 - Intuitive interface requiring minimal training
 - Clear, straightforward workflows
 - No unnecessary complexity or bloat
 - Focus on essential features done exceptionally well
 
 ### 2. Reliability
+
 - 99.9% uptime commitment
 - Data integrity and security
 - Fast, consistent performance
 - Trustworthy platform for critical business operations
 
 ### 3. Accessibility
+
 - Affordable pricing for independent landlords
 - No feature gatekeeping behind expensive tiers
 - Accessible to users of all technical skill levels
 - WCAG compliance for users with disabilities
 
 ### 4. User-Centric
+
 - Built based on real user needs
 - Continuous feedback incorporation
 - Transparent development roadmap
 - Responsive customer support
 
 ### 5. Innovation
+
 - Modern technology stack (Next.js 16, React 19)
 - Continuous improvement and iteration
 - Adopt emerging best practices
@@ -50,6 +55,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 ## Strategic Goals
 
 ### Year 1: Foundation & MVP
+
 - ✅ Build solid technical foundation
 - ✅ Launch core features (properties, tenants, leases)
 - ✅ Onboard first 100 users
@@ -58,6 +64,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 - ✅ Gather user feedback and iterate
 
 ### Year 2: Growth & Enhancement
+
 - 🎯 Expand to 1,000+ active users
 - 🎯 Add financial management and reporting
 - 🎯 Implement maintenance tracking
@@ -66,6 +73,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 - 🎯 Achieve profitability
 
 ### Year 3: Scale & Expansion
+
 - 🎯 Reach 10,000+ properties under management
 - 🎯 Launch mobile applications (iOS, Android)
 - 🎯 Add advanced analytics and AI insights
@@ -74,6 +82,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 - 🎯 Explore international markets
 
 ### Year 4-5: Market Leadership
+
 - 🎯 Become top 3 solution in target market
 - 🎯 White-label/multi-tenant SaaS offering
 - 🎯 API platform for third-party integrations
@@ -84,6 +93,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 ## Future Feature Roadmap
 
 ### Near-Term (6-12 Months)
+
 1. **Smart Lease Renewal Predictions**
    - ML-based renewal likelihood scoring
    - Proactive retention recommendations
@@ -105,6 +115,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
    - Vendor performance tracking
 
 ### Mid-Term (1-2 Years)
+
 5. **AI-Powered Insights**
    - Predictive maintenance alerts
    - Market rent recommendations
@@ -127,6 +138,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
    - Application pipeline management
 
 ### Long-Term (2-5 Years)
+
 9. **Marketplace & Ecosystem**
    - Connect landlords with service providers
    - Insurance partners
@@ -154,6 +166,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 ## Potential Market Expansion
 
 ### Geographic Expansion
+
 - **Phase 1:** United States (focus on top 20 metro areas)
 - **Phase 2:** Canada
 - **Phase 3:** United Kingdom, Australia
@@ -161,6 +174,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 - **Phase 5:** Asia-Pacific markets
 
 ### Vertical Expansion
+
 - **Current:** Residential rental properties
 - **Future:**
   - Commercial real estate management
@@ -170,6 +184,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
   - HOA/Condo management
 
 ### User Segment Expansion
+
 - **Current:** Individual landlords (1-50 properties)
 - **Future:**
   - Property management companies (50-500 properties)
@@ -180,6 +195,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 ## Technology Evolution
 
 ### Platform Maturity
+
 - **Current:** Monolithic Next.js application
 - **Future:**
   - Microservices architecture for scale
@@ -188,6 +204,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
   - Offline-first capabilities
 
 ### AI & Automation
+
 - Chatbot assistant for common tasks
 - Automated document generation
 - Intelligent rent pricing
@@ -195,6 +212,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 - Natural language query interface
 
 ### API & Integrations
+
 - Public API for third-party developers
 - Webhook system for real-time events
 - Integration marketplace
@@ -203,18 +221,21 @@ Empower property managers and landlords to operate more efficiently, make data-d
 ## Success Metrics (5-Year Horizon)
 
 ### User Metrics
+
 - 50,000+ active users
 - 500,000+ properties under management
 - 85%+ user retention rate
 - 4.8/5+ average user rating
 
 ### Business Metrics
+
 - $10M+ annual recurring revenue
 - Positive unit economics
 - 40%+ gross margin
 - Sustainable growth rate (30%+ YoY)
 
 ### Impact Metrics
+
 - 1M+ hours saved for property managers
 - $50M+ in rent collected through platform
 - 100,000+ leases managed
@@ -223,6 +244,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 ## Strategic Priorities
 
 ### Always Prioritize
+
 1. **User Experience:** Intuitive, fast, delightful
 2. **Data Security:** Protect sensitive information
 3. **Reliability:** Keep the platform running smoothly
@@ -230,6 +252,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 5. **Support Quality:** Help users succeed
 
 ### Never Compromise On
+
 - Code quality and maintainability
 - Data privacy and security
 - Ethical business practices
@@ -239,6 +262,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 ## Competitive Advantages
 
 ### What Makes Rent Villa Different
+
 1. **Modern Technology:** Built with latest frameworks (Next.js 16, React 19)
 2. **User-First Design:** Prioritize simplicity over feature bloat
 3. **Transparent Pricing:** No hidden fees or surprise charges
@@ -247,6 +271,7 @@ Empower property managers and landlords to operate more efficiently, make data-d
 6. **Community-Driven:** Listen to users, build what they need
 
 ### Defensible Moats
+
 - Superior user experience (hard to replicate)
 - Network effects (user-generated content, marketplace)
 - Data advantages (insights from aggregate data)
@@ -256,24 +281,29 @@ Empower property managers and landlords to operate more efficiently, make data-d
 ## Risks & Mitigation
 
 ### Market Risks
+
 - **Risk:** Incumbents with established user bases
 - **Mitigation:** Focus on underserved segments, superior UX
 
 ### Technology Risks
+
 - **Risk:** Rapid changes in web technology
 - **Mitigation:** Choose stable, mature technologies; incremental adoption
 
 ### Regulatory Risks
+
 - **Risk:** Changing data privacy and real estate laws
 - **Mitigation:** Stay informed, build compliance into core product
 
 ### Competitive Risks
+
 - **Risk:** New entrants with significant funding
 - **Mitigation:** Build loyal user base, focus on retention, continuous innovation
 
 ## Inspiration & Aspiration
 
 **Rent Villa** aspires to be:
+
 - As intuitive as **Notion** (ease of use)
 - As reliable as **Stripe** (infrastructure)
 - As beloved as **Linear** (user experience)

@@ -1,6 +1,7 @@
+import { eq } from 'drizzle-orm'
+
 import { db } from '../client'
 import { properties, users } from '../schema'
-import { eq } from 'drizzle-orm'
 
 export async function getAllProperties() {
   return db
@@ -22,11 +23,7 @@ export async function getAllProperties() {
 }
 
 export async function getPropertyById(id: string) {
-  const [property] = await db
-    .select()
-    .from(properties)
-    .where(eq(properties.id, id))
-    .limit(1)
+  const [property] = await db.select().from(properties).where(eq(properties.id, id)).limit(1)
 
   return property
 }

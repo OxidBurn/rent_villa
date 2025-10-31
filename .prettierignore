@@ -1,0 +1,44 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.*
+.yarn
+
+# Testing
+coverage
+test-results
+playwright-report
+playwright/.cache
+
+# Next.js
+.next
+out
+build
+
+# Env files
+.env*
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Database
+src/db/migrations/**
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

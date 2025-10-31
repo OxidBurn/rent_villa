@@ -59,6 +59,7 @@ This project uses Next.js App Router (not Pages Router). Key concepts:
 **Status:** Operational (as of 2025-10-30)
 
 ### GitHub Actions CI
+
 - **Workflow:** `.github/workflows/ci.yml`
 - **Triggers:** Push to main, all pull requests
 - **Jobs:** Lint, Type Check, Test, Build (run in parallel)
@@ -66,12 +67,14 @@ This project uses Next.js App Router (not Pages Router). Key concepts:
 - **Badge:** [![CI](https://github.com/OxidBurn/rent_villa/actions/workflows/ci.yml/badge.svg)](https://github.com/OxidBurn/rent_villa/actions/workflows/ci.yml)
 
 ### Vercel Deployment
+
 - **Configuration:** `vercel.json`, `.vercelignore`
 - **Production:** Auto-deploy on push to `main`
 - **Preview:** Unique URL per PR
 - **Documentation:** See `docs/deployment.md`
 
 ### Pipeline Epic
+
 - **Epic:** [#1 - Complete Development Pipeline Setup](https://github.com/OxidBurn/rent_villa/issues/1)
 - **Progress:** 2/10 tasks completed (20%)
 - **Completed:**

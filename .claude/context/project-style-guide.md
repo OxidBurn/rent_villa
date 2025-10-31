@@ -30,6 +30,7 @@ author: Claude Code PM System
 ### Naming Conventions
 
 #### Files
+
 ```typescript
 MyComponent.tsx
 myUtility.ts
@@ -40,6 +41,7 @@ PropertyService.ts
 ```
 
 #### Variables and Functions
+
 ```typescript
 const propertyList = []
 const isPropertyOccupied = true
@@ -51,6 +53,7 @@ async function fetchTenantData() {}
 ```
 
 #### Types and Interfaces
+
 ```typescript
 type PropertyId = string
 type RentAmount = number
@@ -73,6 +76,7 @@ interface ApiResponse<T> {
 ```
 
 #### Classes
+
 ```typescript
 class PropertyManager {}
 class LeaseCalculator {}
@@ -82,6 +86,7 @@ class TenantRepository {}
 ### Type Annotations
 
 Always prefer explicit return types for functions:
+
 ```typescript
 function calculateRent(baseRent: number, utilities: number): number {
   return baseRent + utilities
@@ -94,9 +99,10 @@ async function fetchProperty(id: string): Promise<Property> {
 ```
 
 Use type inference for simple variables:
+
 ```typescript
 const count = 5
-const name = "John Doe"
+const name = 'John Doe'
 
 const property: Property = {}
 ```
@@ -104,6 +110,7 @@ const property: Property = {}
 ### Prefer `type` Over `interface`
 
 Use `type` for most cases:
+
 ```typescript
 type Property = {
   id: string
@@ -116,6 +123,7 @@ type ExtendedProperty = Property & {
 ```
 
 Use `interface` only for:
+
 - React component props (convention)
 - When you need declaration merging
 - Public API contracts
@@ -123,6 +131,7 @@ Use `interface` only for:
 ### Avoid `any` Type
 
 Never use `any` unless absolutely necessary:
+
 ```typescript
 const data: any = {}
 
@@ -140,6 +149,7 @@ const data = responseData as ParsedData
 ### Component Structure
 
 #### Server Components (Default)
+
 ```typescript
 type PropertyListProps = {
   filter?: string
@@ -159,6 +169,7 @@ async function PropertyList({ filter }: PropertyListProps) {
 ```
 
 #### Client Components
+
 ```typescript
 'use client'
 
@@ -222,6 +233,7 @@ export function Component({ prop }: ComponentProps) {
 ### Hooks Conventions
 
 Custom hooks must start with `use`:
+
 ```typescript
 function usePropertyData(propertyId: string) {
   const [property, setProperty] = useState<Property | null>(null)
@@ -259,6 +271,7 @@ app/
 ### Server vs Client Components
 
 Default to Server Components:
+
 ```typescript
 
 async function PropertyPage({ params }: { params: { id: string } }) {
@@ -268,6 +281,7 @@ async function PropertyPage({ params }: { params: { id: string } }) {
 ```
 
 Use Client Components only when necessary:
+
 ```typescript
 'use client'
 
@@ -300,6 +314,7 @@ export async function POST(request: Request) {
 ### Tailwind CSS
 
 Use utility classes directly:
+
 ```typescript
 <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md">
   <h2 className="text-xl font-semibold text-gray-800">Property Title</h2>
@@ -310,6 +325,7 @@ Use utility classes directly:
 ```
 
 Group related utilities:
+
 ```typescript
 <div className="
   flex items-center justify-between
@@ -319,6 +335,7 @@ Group related utilities:
 ```
 
 Use `clsx` or `cn` helper for conditional classes:
+
 ```typescript
 import { clsx } from 'clsx'
 
@@ -364,21 +381,15 @@ src/
 ## Import Order
 
 ```typescript
+import { useEffect, useState } from 'react'
 
-import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-
-import { Button } from '@/components/ui/Button'
 import { PropertyCard } from '@/components/PropertyCard'
-
-
+import { Button } from '@/components/ui/Button'
 import { fetchProperties } from '@/lib/api'
 import { formatDate } from '@/lib/utils'
-
-
 import type { Property } from '@/types/property'
-
 
 import './styles.css'
 ```
@@ -386,6 +397,7 @@ import './styles.css'
 ## Error Handling
 
 Always handle errors explicitly:
+
 ```typescript
 async function fetchPropertyData(id: string): Promise<Property> {
   try {
@@ -410,17 +422,11 @@ async function fetchPropertyData(id: string): Promise<Property> {
 When tests are added, follow these patterns:
 
 ```typescript
-
 describe('PropertyCard', () => {
-  it('displays property address', () => {
+  it('displays property address', () => {})
 
-  })
-
-  it('calls onSelect when clicked', () => {
-
-  })
+  it('calls onSelect when clicked', () => {})
 })
-
 
 describe('calculateMonthlyRent', () => {
   it('adds base rent and utilities', () => {
@@ -432,6 +438,7 @@ describe('calculateMonthlyRent', () => {
 ## Documentation Location
 
 Per CLAUDE.md:
+
 - Store specifications in `./docs/specs/`
 - No inline code comments
 - README for project overview
@@ -453,6 +460,7 @@ chore: update dependencies
 ## Code Review Checklist
 
 Before committing:
+
 - ✅ No `any` types
 - ✅ Explicit function return types
 - ✅ Self-documenting names
