@@ -23,11 +23,13 @@ Rent Villa is deployed on Vercel, which provides zero-configuration deployment f
    Configure in Vercel Dashboard → Settings → Environment Variables:
 
    **Production:**
+
    ```
    NODE_ENV=production
    ```
 
    **Preview & Development:**
+
    ```
    NODE_ENV=development
    ```
@@ -40,6 +42,7 @@ Rent Villa is deployed on Vercel, which provides zero-configuration deployment f
 ### Deployment Workflows
 
 #### Production Deployment
+
 - **Trigger:** Push to `main` branch
 - **URL:** `https://rent-villa.vercel.app` (or custom domain)
 - **Process:**
@@ -50,6 +53,7 @@ Rent Villa is deployed on Vercel, which provides zero-configuration deployment f
   5. Automatic rollback if deployment fails
 
 #### Preview Deployment
+
 - **Trigger:** Pull request created or updated
 - **URL:** Unique URL per PR (e.g., `rent-villa-git-branch-oxidburn.vercel.app`)
 - **Process:**
@@ -62,6 +66,7 @@ Rent Villa is deployed on Vercel, which provides zero-configuration deployment f
 ### Deployment Protection
 
 **Recommended Settings:**
+
 - ✅ Require CI checks to pass before production deployment
 - ✅ Enable deployment notifications (Slack/Discord/Email)
 - ✅ Set up custom domain with automatic HTTPS
@@ -70,6 +75,7 @@ Rent Villa is deployed on Vercel, which provides zero-configuration deployment f
 ### Monitoring
 
 Vercel provides built-in monitoring:
+
 - **Analytics:** Real-time traffic and performance metrics
 - **Logs:** Function logs and build logs
 - **Insights:** Core Web Vitals and performance scores
@@ -99,16 +105,19 @@ If a deployment causes issues:
 ### Troubleshooting
 
 **Build Fails:**
+
 - Check build logs in Vercel Dashboard
 - Verify all environment variables are set
 - Test build locally: `npm run build`
 
 **Deployment Slow:**
+
 - Vercel caches dependencies (npm packages)
 - First build is slower, subsequent builds are faster
 - Check for large dependencies or files
 
 **Environment Variables Not Working:**
+
 - Ensure variables are set for correct environment (Production/Preview/Development)
 - Redeploy after adding new variables
 - Client-side variables must be prefixed with `NEXT_PUBLIC_`
@@ -133,6 +142,7 @@ Developer → Push/PR → GitHub Actions CI → Vercel CD → Deployed
 ## Deployment Checklist
 
 Before deploying to production:
+
 - [ ] All CI checks pass
 - [ ] Code reviewed and approved
 - [ ] No known critical bugs

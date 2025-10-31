@@ -7,6 +7,7 @@ This document describes the database infrastructure and management for the Rent 
 Rent Villa uses **Vercel Postgres** with **Drizzle ORM** for type-safe database operations.
 
 **Stack:**
+
 - Database: Vercel Postgres (PostgreSQL)
 - ORM: Drizzle ORM
 - Migration Tool: Drizzle Kit
@@ -19,11 +20,13 @@ Rent Villa uses **Vercel Postgres** with **Drizzle ORM** for type-safe database 
 **Option 1: Use Vercel Postgres (Recommended)**
 
 1. Pull environment variables from Vercel:
+
    ```bash
    vercel env pull .env.local
    ```
 
 2. Run migrations:
+
    ```bash
    npm run db:migrate:run
    ```
@@ -38,11 +41,13 @@ Rent Villa uses **Vercel Postgres** with **Drizzle ORM** for type-safe database 
 1. Install PostgreSQL locally
 
 2. Create database:
+
    ```bash
    createdb rent_villa_dev
    ```
 
 3. Create `.env.local`:
+
    ```
    DATABASE_URL="postgresql://user:password@localhost:5432/rent_villa_dev"
    ```
@@ -111,9 +116,10 @@ Stores rental property information.
 ### Creating a New Table
 
 1. Create schema file in `src/db/schema/`:
+
    ```typescript
    // src/db/schema/tenants.ts
-   import { pgTable, uuid, varchar, timestamp } from 'drizzle-orm/pg-core'
+   import { pgTable, timestamp, uuid, varchar } from 'drizzle-orm/pg-core'
 
    export const tenants = pgTable('tenants', {
      id: uuid('id').defaultRandom().primaryKey(),
@@ -128,11 +134,13 @@ Stores rental property information.
    ```
 
 2. Export from `src/db/schema/index.ts`:
+
    ```typescript
    export * from './tenants'
    ```
 
 3. Generate migration:
+
    ```bash
    npm run db:generate
    ```
@@ -149,6 +157,7 @@ Stores rental property information.
 1. Update schema file (e.g., `src/db/schema/users.ts`)
 
 2. Generate migration:
+
    ```bash
    npm run db:generate
    ```
@@ -162,26 +171,25 @@ Stores rental property information.
 ### Basic Queries
 
 ```typescript
+// Select with condition
+import { eq } from 'drizzle-orm'
+
 import { db } from '@/db/client'
 import { properties } from '@/db/schema'
 
 // Select all
 const allProperties = await db.select().from(properties)
 
-// Select with condition
-import { eq } from 'drizzle-orm'
-const property = await db
-  .select()
-  .from(properties)
-  .where(eq(properties.id, propertyId))
+const property = await db.select().from(properties).where(eq(properties.id, propertyId))
 ```
 
 ### Joins
 
 ```typescript
+import { eq } from 'drizzle-orm'
+
 import { db } from '@/db/client'
 import { properties, users } from '@/db/schema'
-import { eq } from 'drizzle-orm'
 
 const propertiesWithOwners = await db
   .select({
@@ -211,18 +219,13 @@ const [newProperty] = await db
 ### Update
 
 ```typescript
-await db
-  .update(properties)
-  .set({ monthlyRent: 375000 })
-  .where(eq(properties.id, propertyId))
+await db.update(properties).set({ monthlyRent: 375000 }).where(eq(properties.id, propertyId))
 ```
 
 ### Delete
 
 ```typescript
-await db
-  .delete(properties)
-  .where(eq(properties.id, propertyId))
+await db.delete(properties).where(eq(properties.id, propertyId))
 ```
 
 ## Migrations
@@ -236,6 +239,7 @@ Migrations run automatically when you use `npm run db:migrate:run`.
 Migrations run automatically on Vercel deployment via the build process.
 
 The deployment flow:
+
 1. Vercel starts build
 2. Runs `npm run build` (or `vercel-build` if configured)
 3. Build process includes migration execution
@@ -246,6 +250,7 @@ The deployment flow:
 If you need to run migrations manually in production:
 
 1. Pull production environment variables:
+
    ```bash
    vercel env pull .env.production
    ```
@@ -276,6 +281,7 @@ npm run db:studio
 Opens at http://localhost:4983
 
 Features:
+
 - Browse tables and data
 - Run queries
 - Edit data directly
@@ -291,6 +297,7 @@ Features:
 ### Vercel Setup
 
 Vercel Postgres automatically provides:
+
 - `POSTGRES_URL` - Full connection string
 - `POSTGRES_PRISMA_URL` - Optimized for ORM (use for DATABASE_URL)
 - `POSTGRES_URL_NON_POOLING` - For migrations (use for DATABASE_URL_MIGRATION)
@@ -302,6 +309,7 @@ Vercel Postgres automatically provides:
 **Symptom:** Database operations hang or timeout
 
 **Solutions:**
+
 - Check `DATABASE_URL` is set correctly
 - Verify Vercel Postgres is in the same region as deployment
 - Check connection pool settings in `src/db/client.ts`
@@ -311,6 +319,7 @@ Vercel Postgres automatically provides:
 **Symptom:** `npm run db:migrate:run` fails
 
 **Solutions:**
+
 - Check migration file for syntax errors
 - Verify `DATABASE_URL` or `DATABASE_URL_MIGRATION` is set
 - Ensure database credentials are correct
@@ -321,6 +330,7 @@ Vercel Postgres automatically provides:
 **Symptom:** TypeScript complains about database types
 
 **Solutions:**
+
 - Regenerate types: `npm run db:generate`
 - Restart TypeScript server in your editor
 - Verify schema files are exported in `src/db/schema/index.ts`
@@ -330,6 +340,7 @@ Vercel Postgres automatically provides:
 **Symptom:** `npm run db:seed` fails with unique constraint error
 
 **Solutions:**
+
 - Database already has seed data
 - Drop and recreate database
 - Or modify seed script to check for existing data first
@@ -356,29 +367,30 @@ Vercel Postgres automatically provides:
 ## Performance Tips
 
 1. **Use Indexes**
+
    ```typescript
    import { index } from 'drizzle-orm/pg-core'
 
-   export const properties = pgTable('properties', {
-     // ... columns
-   }, (table) => ({
-     ownerIdIdx: index('owner_id_idx').on(table.ownerId),
-   }))
+   export const properties = pgTable(
+     'properties',
+     {
+       // ... columns
+     },
+     (table) => ({
+       ownerIdIdx: index('owner_id_idx').on(table.ownerId),
+     })
+   )
    ```
 
 2. **Limit Results**
+
    ```typescript
-   const properties = await db
-     .select()
-     .from(properties)
-     .limit(10)
+   const properties = await db.select().from(properties).limit(10)
    ```
 
 3. **Use Select Specific Columns**
    ```typescript
-   const names = await db
-     .select({ name: properties.name })
-     .from(properties)
+   const names = await db.select({ name: properties.name }).from(properties)
    ```
 
 ## Resources

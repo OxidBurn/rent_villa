@@ -117,6 +117,7 @@ author: Claude Code PM System
 ## Key Use Cases
 
 ### Use Case 1: Onboard New Property
+
 1. Property manager logs in
 2. Clicks "Add Property"
 3. Fills in property details (address, type, units, rent)
@@ -125,6 +126,7 @@ author: Claude Code PM System
 6. Property appears in dashboard
 
 ### Use Case 2: Register New Tenant
+
 1. Property manager selects property
 2. Clicks "Add Tenant"
 3. Enters tenant information
@@ -134,6 +136,7 @@ author: Claude Code PM System
 7. Property status changes to "Occupied"
 
 ### Use Case 3: Track Lease Renewal
+
 1. System identifies leases ending in 60 days
 2. Sends automatic reminder to property manager
 3. Manager reviews tenant history
@@ -142,6 +145,7 @@ author: Claude Code PM System
 6. If terminating: sets property to "Vacant", initiates move-out process
 
 ### Use Case 4: Monitor Portfolio Health
+
 1. Property manager opens dashboard
 2. Views summary: 10 properties, 8 occupied, 2 vacant
 3. Sees 3 leases expiring this month
@@ -152,6 +156,7 @@ author: Claude Code PM System
 ## Success Criteria
 
 ### User Success Metrics
+
 - Time to onboard new property: < 5 minutes
 - Time to register new tenant: < 10 minutes
 - Dashboard load time: < 2 seconds
@@ -159,6 +164,7 @@ author: Claude Code PM System
 - Feature adoption rate: > 70% for core features
 
 ### Business Success Metrics
+
 - Active users (MAU)
 - Properties under management
 - Lease renewal rate improvement
@@ -178,6 +184,7 @@ author: Claude Code PM System
 ## Competitive Positioning
 
 **Rent Villa** differentiates by:
+
 - Modern, intuitive UI built with Next.js 16 and React 19
 - Fast, responsive performance
 - Simple onboarding process

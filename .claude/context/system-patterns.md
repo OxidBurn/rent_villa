@@ -10,12 +10,14 @@ author: Claude Code PM System
 ## Architectural Style
 
 ### Next.js App Router Architecture
+
 - **Pattern:** Server-first, streaming-capable React architecture
 - **Default:** React Server Components (RSC)
 - **Client-side:** Explicit `"use client"` directive when needed
 - **Rendering:** Hybrid SSR, SSG, and ISR
 
 ### Component Architecture
+
 - **Server Components (default):**
   - Direct database access
   - Backend resource fetching
@@ -31,6 +33,7 @@ author: Claude Code PM System
 ## Design Patterns Observed
 
 ### 1. File-Based Routing Pattern
+
 ```
 app/
 ├── layout.tsx        → Layout wrapper for all routes
@@ -40,18 +43,21 @@ app/
 ```
 
 ### 2. Layout Pattern
+
 - Root layout in `app/layout.tsx`
 - Metadata API for SEO
 - Shared UI across routes
 - Font optimization with `next/font`
 
 ### 3. Styling Pattern
+
 - **Approach:** Utility-first with Tailwind CSS
 - **Global Styles:** `app/globals.css` with Tailwind directives
 - **Component Styles:** Inline Tailwind classes
 - **Custom Styles:** Extend Tailwind config when needed
 
 ### 4. Type Safety Pattern
+
 - **Full TypeScript:** All `.tsx` and `.ts` files
 - **Type Inference:** Leverage TypeScript compiler
 - **Path Aliases:** `@/*` for clean imports
@@ -60,6 +66,7 @@ app/
 ## Data Flow Patterns
 
 ### Server Component Data Fetching
+
 ```typescript
 async function ServerComponent() {
   const data = await fetch('https://api.example.com/data')
@@ -68,6 +75,7 @@ async function ServerComponent() {
 ```
 
 ### Client Component State Management
+
 ```typescript
 'use client'
 function ClientComponent() {
@@ -79,6 +87,7 @@ function ClientComponent() {
 ## Code Organization Principles
 
 ### SOLID Principles (per CLAUDE.md)
+
 - **Single Responsibility:** Each component serves one purpose
 - **Open/Closed:** Extend via composition, not modification
 - **Liskov Substitution:** Consistent component interfaces
@@ -86,6 +95,7 @@ function ClientComponent() {
 - **Dependency Inversion:** Depend on abstractions, not concretions
 
 ### Self-Documenting Code (per CLAUDE.md)
+
 - **No inline comments:** Code should explain itself
 - **Descriptive names:** Clear variable and function names
 - **Extract complexity:** Move complex logic to named functions
@@ -94,12 +104,14 @@ function ClientComponent() {
 ## Configuration Patterns
 
 ### TypeScript Configuration
+
 - **Module Resolution:** `bundler` (Next.js optimized)
 - **JSX:** `preserve` (handled by Next.js)
 - **Strict Mode:** Enabled for type safety
 - **Path Mapping:** `@/*` for clean imports
 
 ### ESLint Configuration
+
 - **Format:** ESM (`.mjs` extension)
 - **Extends:** `eslint-config-next`
 - **Integration:** TypeScript parser
@@ -107,16 +119,19 @@ function ClientComponent() {
 ## Error Handling Patterns
 
 ### Next.js Error Boundaries
+
 - `error.tsx` - Component-level error UI
 - `global-error.tsx` - Root-level error UI
 - `not-found.tsx` - 404 handling
 
 ### Loading States
+
 - `loading.tsx` - Automatic loading UI during Suspense
 
 ## Deployment Patterns
 
 ### Vercel-Optimized
+
 - Zero-config deployment
 - Edge functions ready
 - Automatic preview deployments
@@ -135,6 +150,7 @@ function ClientComponent() {
 ## Emerging Patterns
 
 As project grows, consider:
+
 - **Repository Pattern:** Abstract data layer
 - **Service Layer:** Business logic separation
 - **Hook Pattern:** Custom React hooks for shared logic

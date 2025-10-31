@@ -37,6 +37,7 @@ rent_villa/
 ## Key Directories
 
 ### `/src/app/`
+
 - **Purpose:** Next.js App Router pages and layouts
 - **Convention:** File-based routing system
 - **Key Files:**
@@ -45,11 +46,13 @@ rent_villa/
   - `globals.css` - Global Tailwind directives and custom styles
 
 ### `/public/`
+
 - **Purpose:** Static files served directly by Next.js
 - **Usage:** Images, fonts, manifests, robots.txt
 - **Access:** Files accessible at root URL (e.g., `/favicon.ico`)
 
 ### `/.claude/`
+
 - **Purpose:** Claude Code agent configuration
 - **Subdirectories:**
   - `context/` - Project state and documentation
@@ -59,12 +62,14 @@ rent_villa/
 ## File Naming Patterns
 
 ### React Components
+
 - **Layout Components:** `layout.tsx` (reserved Next.js filename)
 - **Page Components:** `page.tsx` (reserved Next.js filename)
 - **Server Components:** `.tsx` without `"use client"` directive
 - **Client Components:** `.tsx` with `"use client"` directive at top
 
 ### Configuration Files
+
 - **TypeScript:** `.ts` extension for config files
 - **JavaScript:** `.mjs` extension for ESM config files
 - **Styles:** `.css` for stylesheets
@@ -72,9 +77,11 @@ rent_villa/
 ## Path Aliases
 
 Configured in `tsconfig.json:22`:
+
 - `@/*` → `src/*`
 
 Example usage:
+
 ```typescript
 import { Component } from '@/components/Component'
 ```

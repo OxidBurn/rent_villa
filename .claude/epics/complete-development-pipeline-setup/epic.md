@@ -20,8 +20,10 @@ Establish a production-ready CI/CD pipeline for Rent Villa by leveraging GitHub 
 ## Architecture Decisions
 
 ### 1. **CI/CD Platform: GitHub Actions + Vercel**
+
 **Decision:** Use GitHub Actions for CI checks, Vercel CLI for CD orchestration
 **Rationale:**
+
 - GitHub Actions is free for public repos, integrated with GitHub
 - Vercel provides zero-config Next.js deployment with built-in preview environments
 - No need for complex container orchestration or custom build servers
@@ -31,8 +33,10 @@ Establish a production-ready CI/CD pipeline for Rent Villa by leveraging GitHub 
 **Why Not:** Additional cost, complexity, and integration overhead
 
 ### 2. **Testing Stack: Vitest + Playwright**
+
 **Decision:** Vitest for unit/integration tests, Playwright for E2E
 **Rationale:**
+
 - Vitest is faster than Jest, better Next.js integration, modern API
 - Playwright is reliable, supports all browsers, excellent developer experience
 - Both have excellent TypeScript support
@@ -41,8 +45,10 @@ Establish a production-ready CI/CD pipeline for Rent Villa by leveraging GitHub 
 **Why Not:** Slower test execution, less modern APIs
 
 ### 3. **Database: Vercel Postgres with Drizzle ORM**
+
 **Decision:** Vercel Postgres (PostgreSQL) with Drizzle ORM for migrations
 **Rationale:**
+
 - Vercel Postgres integrates seamlessly with Vercel deployments
 - Drizzle is lightweight, TypeScript-first, excellent DX
 - No need for separate database hosting provider
@@ -52,8 +58,10 @@ Establish a production-ready CI/CD pipeline for Rent Villa by leveraging GitHub 
 **Why Not:** Additional provider complexity, Prisma is heavier weight
 
 ### 4. **Monitoring: Vercel Analytics + Sentry**
+
 **Decision:** Vercel Analytics for performance, Sentry for error tracking
 **Rationale:**
+
 - Vercel Analytics is included with Vercel, zero-config
 - Sentry free tier is generous, excellent error tracking
 - Both integrate seamlessly with Next.js
@@ -62,15 +70,19 @@ Establish a production-ready CI/CD pipeline for Rent Villa by leveraging GitHub 
 **Why Not:** Expensive, over-engineered for current scale
 
 ### 5. **Secret Management: GitHub Secrets + Vercel Environment Variables**
+
 **Decision:** Native platform secret management
 **Rationale:**
+
 - No need for external secret vault (HashiCorp Vault, AWS Secrets Manager)
 - Platform-native secrets are secure and simple to use
 - Reduces attack surface and operational complexity
 
 ### 6. **Deployment Strategy: Vercel's Built-in Blue-Green**
+
 **Decision:** Leverage Vercel's automatic blue-green deployments
 **Rationale:**
+
 - Vercel handles zero-downtime deployments automatically
 - Instant rollback to previous deployment with one click
 - No need to implement custom deployment strategies
@@ -78,34 +90,40 @@ Establish a production-ready CI/CD pipeline for Rent Villa by leveraging GitHub 
 ## Technical Approach
 
 ### Frontend Components
+
 **Not Applicable:** This epic is infrastructure-focused, no UI components needed. Future feature work will use the pipeline established here.
 
 ### Backend Services
 
 #### 1. **CI Pipeline (GitHub Actions)**
+
 - Single workflow file: `.github/workflows/ci.yml`
 - Jobs: `lint`, `typecheck`, `test`, `build`
 - Runs on: Push to any branch, PR to `main`
 - Duration target: <5 minutes
 
 #### 2. **CD Pipeline (Vercel)**
+
 - Automatic staging deployment on merge to `main`
 - PR preview environments automatically created
 - Production promotion via Vercel dashboard or CLI
 - Automatic rollback capability
 
 #### 3. **Database Migration System**
+
 - Drizzle migrations in `src/db/migrations/`
 - Run migrations automatically on deployment via Vercel build script
 - Migration state tracked in database schema version table
 - Rollback capability via Drizzle CLI
 
 #### 4. **Health Check Endpoint**
+
 - API route: `/api/health`
 - Returns: Database connectivity, app version, deployment ID
 - Used by: Vercel health checks, monitoring systems
 
 #### 5. **Error Tracking Integration**
+
 - Sentry SDK integrated in `src/app/layout.tsx` (client)
 - Sentry SDK integrated in `next.config.ts` (server)
 - Environment-specific DSN configuration
@@ -114,6 +132,7 @@ Establish a production-ready CI/CD pipeline for Rent Villa by leveraging GitHub 
 ### Infrastructure
 
 #### Environment Configuration
+
 ```
 Development:  Local machine, .env.local
 Staging:      Vercel (preview/staging), .env.staging
@@ -121,6 +140,7 @@ Production:   Vercel (production), .env.production
 ```
 
 #### Environment Variables Structure
+
 ```
 # Database
 DATABASE_URL=postgres://...
@@ -136,6 +156,7 @@ VERCEL_URL=auto-generated
 ```
 
 #### Secret Management
+
 - **GitHub Secrets:** Used for CI (none needed initially, tests run locally)
 - **Vercel Environment Variables:** Database credentials, Sentry DSN, API keys
 - **Local Development:** `.env.local` (gitignored)
@@ -164,24 +185,28 @@ VERCEL_URL=auto-generated
 
 **Phase 1: Core Pipeline (Week 1)**
 Focus: Get CI/CD working end-to-end
+
 - GitHub Actions CI workflow
 - Vercel deployment integration
 - Environment variable setup
 
 **Phase 2: Testing Infrastructure (Week 2)**
 Focus: Automated test execution
+
 - Vitest configuration and sample tests
 - Playwright E2E setup
 - Test execution in CI
 
 **Phase 3: Database Pipeline (Week 3)**
 Focus: Migration automation
+
 - Drizzle ORM setup
 - Migration generation and execution
 - Database seeding for development
 
 **Phase 4: Production Readiness (Week 4)**
 Focus: Monitoring and reliability
+
 - Sentry error tracking
 - Health check endpoints
 - Production deployment workflow
@@ -204,15 +229,18 @@ Focus: Monitoring and reliability
 ### Testing Approach
 
 **CI Testing:**
+
 - Unit tests run on every commit
 - E2E tests run on PR to `main` only (to save time)
 - Build verification on every commit
 
 **Manual Testing:**
+
 - Preview environment used for manual QA
 - Production smoke test after deployment
 
 **Test Coverage:**
+
 - Initial target: 50% (establish baseline)
 - Long-term target: 70% for critical paths
 - Coverage report posted to PRs
@@ -239,6 +267,7 @@ High-level task categories that will be created:
 ## Dependencies
 
 ### External Dependencies
+
 1. **GitHub Repository** (Status: ✅ Available)
    - Used for: Source code hosting, GitHub Actions CI
 2. **Vercel Account** (Status: ⚠️ Needs setup)
@@ -252,6 +281,7 @@ High-level task categories that will be created:
    - Action: Create organization, get DSN keys
 
 ### Internal Dependencies
+
 1. **Database Schema Design** (Status: 🔄 In progress)
    - Required for: Migration system setup
    - Blocker: Need basic schema for properties, tenants, leases
@@ -265,6 +295,7 @@ High-level task categories that will be created:
    - Timeline: Before Task 2 starts
 
 ### Team Dependencies
+
 1. **Vercel Access:** Team members need Vercel account invites
 2. **GitHub Permissions:** Team needs write access to repository
 3. **Training:** Brief walkthrough of CI/CD workflow (30 min session)
@@ -272,6 +303,7 @@ High-level task categories that will be created:
 ## Success Criteria (Technical)
 
 ### Functional Success
+
 - ✅ Every PR shows pass/fail status within 5 minutes
 - ✅ Merging to `main` triggers automatic staging deployment within 10 minutes
 - ✅ Production deployment available via one-click promotion
@@ -283,6 +315,7 @@ High-level task categories that will be created:
 - ✅ PR preview environments auto-generated with unique URLs
 
 ### Performance Benchmarks
+
 - **CI Pipeline:** <5 minutes (90th percentile)
 - **Staging Deployment:** <10 minutes (end-to-end)
 - **Production Deployment:** <8 minutes (optimized builds)
@@ -290,6 +323,7 @@ High-level task categories that will be created:
 - **Rollback Time:** <2 minutes (instant via Vercel)
 
 ### Quality Gates
+
 - ✅ TypeScript errors block PR merge
 - ✅ ESLint errors block PR merge
 - ✅ Test failures block PR merge
@@ -297,6 +331,7 @@ High-level task categories that will be created:
 - ✅ Failed health checks trigger automatic rollback
 
 ### Developer Experience
+
 - ✅ Clear error messages in CI logs
 - ✅ Documentation covers 80% of common scenarios
 - ✅ Local development requires <5 environment variables
@@ -306,8 +341,10 @@ High-level task categories that will be created:
 ## Estimated Effort
 
 ### Overall Timeline
+
 **Total Duration:** 4 weeks (1 sprint)
 **Breakdown:**
+
 - Week 1: Core Pipeline (Tasks 1-2) - 8-12 hours
 - Week 2: Testing (Tasks 3-4) - 10-14 hours
 - Week 3: Database & Quality (Tasks 5-6) - 8-12 hours
@@ -316,12 +353,14 @@ High-level task categories that will be created:
 **Total Effort:** 36-52 hours (1 developer full-time for 1 month)
 
 ### Resource Requirements
+
 - **Developer Time:** 1 senior developer (or 2 mid-level developers pairing)
 - **Tech Lead Review:** 4-6 hours (architecture decisions, PR reviews)
 - **External Accounts:** Vercel, Sentry (free tiers)
 - **Cost:** $0/month initially (free tiers), scales with usage
 
 ### Critical Path Items
+
 1. **Vercel Account Setup** (blocks Task 2, 3, 4, 5, 7, 8)
 2. **Database Selection** (blocks Task 5)
 3. **CI Workflow** (blocks Task 3, 4, 6)
@@ -332,18 +371,18 @@ High-level task categories that will be created:
 
 ### Effort by Task Category
 
-| Task | Description | Effort | Priority |
-|------|-------------|---------|----------|
-| 1 | GitHub Actions CI | 4-6h | P0 |
-| 2 | Vercel Deployment | 3-4h | P0 |
-| 3 | Vitest Setup | 4-6h | P0 |
-| 4 | Playwright E2E | 6-8h | P1 |
-| 5 | Database & Migrations | 6-8h | P1 |
-| 6 | Code Quality Tools | 3-4h | P0 |
-| 7 | Sentry Integration | 4-5h | P1 |
-| 8 | Health Checks | 2-3h | P1 |
-| 9 | Documentation | 6-8h | P0 |
-| 10 | Production Deploy | 4-6h | P0 |
+| Task | Description           | Effort | Priority |
+| ---- | --------------------- | ------ | -------- |
+| 1    | GitHub Actions CI     | 4-6h   | P0       |
+| 2    | Vercel Deployment     | 3-4h   | P0       |
+| 3    | Vitest Setup          | 4-6h   | P0       |
+| 4    | Playwright E2E        | 6-8h   | P1       |
+| 5    | Database & Migrations | 6-8h   | P1       |
+| 6    | Code Quality Tools    | 3-4h   | P0       |
+| 7    | Sentry Integration    | 4-5h   | P1       |
+| 8    | Health Checks         | 2-3h   | P1       |
+| 9    | Documentation         | 6-8h   | P0       |
+| 10   | Production Deploy     | 4-6h   | P0       |
 
 **Total:** 42-58 hours
 
@@ -399,6 +438,7 @@ This epic is intentionally **conservative and pragmatic**:
 ### Success Looks Like
 
 In 4 weeks:
+
 - Developer commits code → CI checks pass → Merges → Staging deployed → Production promoted
 - Total time: <30 minutes from commit to production
 - Zero manual steps
@@ -406,6 +446,7 @@ In 4 weeks:
 - Team can focus on building features, not fighting infrastructure
 
 ## Tasks Created
+
 - [ ] #11 - Production Deployment & Validation (parallel: false)
 - [ ] #10 - Documentation & Runbooks (parallel: true)
 - [x] #2 - GitHub Actions CI Workflow (parallel: true)
@@ -421,6 +462,7 @@ In 4 weeks:
 **Parallel tasks:** 6
 **Sequential tasks:** 4
 **Estimated total effort:** 42-58 hours
+
 ---
 
 **Epic Status:** Tasks created and ready for implementation
