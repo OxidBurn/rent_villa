@@ -25,6 +25,7 @@
     "db:migrate:run": "tsx src/db/migrate.ts"
   },
   "dependencies": {
+    "@sentry/nextjs": "^10.22.0",
     "drizzle-orm": "^0.44.7",
     "next": "16.0.1",
     "postgres": "^3.4.7",
