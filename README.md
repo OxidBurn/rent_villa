@@ -98,10 +98,17 @@ Complete deployment documentation is available in the [docs/deployment](docs/dep
 
 - **[CI/CD Overview](docs/deployment/ci-cd-overview.md)** - Architecture and pipeline explanation
 - **[Deployment Runbook](docs/deployment/deployment-runbook.md)** - Step-by-step deployment procedures
+- **[Production Deployment Guide](docs/deployment/production-deployment-guide.md)** - First-time and ongoing production deployments
+- **[Production Deployment Checklist](docs/deployment/production-deployment-checklist.md)** - Comprehensive deployment validation checklist
 - **[Rollback Procedures](docs/deployment/rollback-procedures.md)** - How to rollback deployments
 - **[Troubleshooting Guide](docs/deployment/troubleshooting-guide.md)** - Common issues and solutions
 - **[Environment Variables](docs/deployment/environment-variables.md)** - Complete variable reference
 - **[Incident Response](docs/deployment/incident-response.md)** - Production incident procedures
+
+#### Production Deployment
+
+- **[Team Training Guide](docs/deployment/team-training-guide.md)** - Training materials for deployment team
+- **[Deployment Log](docs/deployment/deployment-log.md)** - Production deployment history and records
 
 #### Additional Documentation
 
