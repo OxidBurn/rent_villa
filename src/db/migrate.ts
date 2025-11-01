@@ -12,11 +12,11 @@ const runMigrations = async () => {
   const migrationClient = postgres(connectionString, { max: 1 })
   const db = drizzle(migrationClient)
 
-  console.log('Running migrations...')
+  console.warn('Running migrations...')
 
   await migrate(db, { migrationsFolder: './src/db/migrations' })
 
-  console.log('Migrations completed successfully')
+  console.warn('Migrations completed successfully')
 
   await migrationClient.end()
 }

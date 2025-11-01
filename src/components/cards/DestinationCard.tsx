@@ -1,9 +1,10 @@
-import Image from 'next/image';
-import { Destination } from '@/types/destination';
+import Image from 'next/image'
+
+import type { Destination } from '@/types/destination'
 
 interface DestinationCardProps {
-  destination: Destination;
-  onClick?: () => void;
+  destination: Destination
+  onClick?: () => void
 }
 
 export default function DestinationCard({ destination, onClick }: DestinationCardProps) {
@@ -31,11 +32,9 @@ export default function DestinationCard({ destination, onClick }: DestinationCar
         </h3>
         <div className="flex items-center gap-2">
           <Image src="/house-flood 1.svg" alt="" width={24} height={24} />
-          <p className="text-base md:text-lg text-[#2b6c70]">
-            {destination.villaCount}+ Вилл
-          </p>
+          <p className="text-base md:text-lg text-[#2b6c70]">{destination.villaCount}+ Вилл</p>
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,19 +1,19 @@
-'use client';
+'use client'
 
-import SearchForm from '@/components/forms/SearchForm';
-import { SearchFormData } from '@/types/search';
+import SearchForm from '@/components/forms/SearchForm'
+import type { SearchFormData } from '@/types/search'
 
 export default function HeroSection() {
-  const handleSearch = (data: SearchFormData) => {
-    console.log('Search data:', data);
-  };
+  const handleSearch = (_data: SearchFormData) => {
+    // TODO: Implement search functionality
+  }
 
   return (
     <section className="relative min-h-screen w-full flex flex-col items-center justify-between py-12 md:py-20 px-4 md:px-8">
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url("/luxury-beachfront-villa-with-infinity-pool 1.png")'
+          backgroundImage: 'url("/luxury-beachfront-villa-with-infinity-pool 1.png")',
         }}
       />
 
@@ -24,7 +24,9 @@ export default function HeroSection() {
             style={{ fontSize: 'var(--font-size-hero-lg)' }}
           >
             <span className="block">Откройте для себя</span>
-            <span className="block"><span className="font-bold italic text-[#d48e1e]">Prime villa</span> для</span>
+            <span className="block">
+              <span className="font-bold italic text-[#d48e1e]">Prime villa</span> для
+            </span>
             <span className="block">отдыха в разных</span>
             <span className="block">уголках мира</span>
           </h1>
@@ -38,5 +40,5 @@ export default function HeroSection() {
         <SearchForm onSearch={handleSearch} />
       </div>
     </section>
-  );
+  )
 }

@@ -1,9 +1,11 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import DestinationCard from '@/components/cards/DestinationCard';
-import { Destination } from '@/types/destination';
-import Image from 'next/image';
+import { useState } from 'react'
+
+import Image from 'next/image'
+
+import DestinationCard from '@/components/cards/DestinationCard'
+import type { Destination } from '@/types/destination'
 
 const destinations: Destination[] = [
   {
@@ -11,41 +13,41 @@ const destinations: Destination[] = [
     name: 'Бали',
     description: '',
     image: '/vacation-tree-holiday-maldives-islands 1.png',
-    villaCount: 580
+    villaCount: 580,
   },
   {
     id: '2',
     name: 'Мальдивы',
     description: '',
     image: '/vacation-tree-holiday-maldives-islands 1-1.png',
-    villaCount: 30
+    villaCount: 30,
   },
   {
     id: '3',
     name: 'Пхукет',
     description: '',
     image: '/vacation-tree-holiday-maldives-islands 1-2.png',
-    villaCount: 110
+    villaCount: 110,
   },
   {
     id: '4',
     name: 'Коста-Рика',
     description: '',
     image: '/vacation-tree-holiday-maldives-islands 1-3.png',
-    villaCount: 20
-  }
-];
+    villaCount: 20,
+  },
+]
 
 export default function Destinations() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [_currentIndex, _setCurrentIndex] = useState(0)
 
   const handlePrevious = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : destinations.length - 1));
-  };
+    _setCurrentIndex((prev) => (prev > 0 ? prev - 1 : destinations.length - 1))
+  }
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev < destinations.length - 1 ? prev + 1 : 0));
-  };
+    _setCurrentIndex((prev) => (prev < destinations.length - 1 ? prev + 1 : 0))
+  }
 
   return (
     <section className="w-full py-12 md:py-16 lg:py-20 bg-gray-50">
@@ -53,7 +55,8 @@ export default function Destinations() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-8 mb-8 md:mb-12">
           <div className="max-w-3xl">
             <h2 className="font-display font-medium text-2xl md:text-3xl lg:text-4xl uppercase text-[#06272d] mb-2">
-              <span className="font-bold italic text-[#d48e1e]">Рекомендуемые</span> направления для вас
+              <span className="font-bold italic text-[#d48e1e]">Рекомендуемые</span> направления для
+              вас
             </h2>
             <p className="text-sm md:text-base text-[#06272d]">
               Откройте для себя лучшие уголки мира.
@@ -83,11 +86,13 @@ export default function Destinations() {
             <DestinationCard
               key={destination.id}
               destination={destination}
-              onClick={() => console.log('Destination clicked:', destination.id)}
+              onClick={() => {
+                // TODO: Handle destination click
+              }}
             />
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }

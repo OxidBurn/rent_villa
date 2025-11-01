@@ -1,20 +1,29 @@
-'use client';
+'use client'
 
-import Image from 'next/image';
+import Image from 'next/image'
 
 interface CategoryCardProps {
-  title: string;
-  description: string;
-  image: string;
-  icon: string;
-  aspectRatio?: string;
-  onClick?: () => void;
+  title: string
+  description: string
+  image: string
+  icon: string
+  aspectRatio?: string
+  onClick?: () => void
 }
 
-export default function CategoryCard({ title, description, image, icon, aspectRatio = 'aspect-[4/3]', onClick }: CategoryCardProps) {
+export default function CategoryCard({
+  title,
+  description,
+  image,
+  icon,
+  aspectRatio = 'aspect-[4/3]',
+  onClick,
+}: CategoryCardProps) {
   return (
     <div className="flex flex-col gap-4 h-full group/card cursor-pointer transition-transform duration-300 hover:-translate-y-2">
-      <div className={`relative w-full ${aspectRatio} rounded-xl overflow-hidden shadow-lg group-hover/card:shadow-2xl transition-shadow duration-300`}>
+      <div
+        className={`relative w-full ${aspectRatio} rounded-xl overflow-hidden shadow-lg group-hover/card:shadow-2xl transition-shadow duration-300`}
+      >
         <Image
           src={image}
           alt={title}
@@ -37,10 +46,8 @@ export default function CategoryCard({ title, description, image, icon, aspectRa
             {title}
           </h3>
         </div>
-        <p className="text-sm md:text-base text-[#2b6c70]">
-          {description}
-        </p>
+        <p className="text-sm md:text-base text-[#2b6c70]">{description}</p>
       </div>
     </div>
-  );
+  )
 }

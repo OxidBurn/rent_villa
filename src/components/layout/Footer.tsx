@@ -1,27 +1,15 @@
-import Image from 'next/image';
+import Image from 'next/image'
 
 const villaCollections = [
   'Виллы на берегу моря',
   'Виллы премиум-класса',
   'Уникальные виллы',
-  'Шале'
-];
+  'Шале',
+]
 
-const destinations = [
-  'Греция',
-  'Индонезия',
-  'Италия',
-  'Франция',
-  'Таиланд',
-  'Мексика'
-];
+const destinations = ['Греция', 'Индонезия', 'Италия', 'Франция', 'Таиланд', 'Мексика']
 
-const navigation = [
-  'О нас',
-  'Контакты',
-  'Надежность и безопасность',
-  'Правила и условия'
-];
+const navigation = ['О нас', 'Контакты', 'Надежность и безопасность', 'Правила и условия']
 
 export default function Footer() {
   return (
@@ -52,7 +40,13 @@ export default function Footer() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2 md:gap-3">
-                  <Image src="/phone-call 1.svg" alt="" width={24} height={24} className="shrink-0" />
+                  <Image
+                    src="/phone-call 1.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    className="shrink-0"
+                  />
                   <p className="text-sm md:text-base lg:text-lg text-[#06272d] whitespace-nowrap">
                     +852 55162286 | +852 55162286
                   </p>
@@ -135,9 +129,27 @@ export default function Footer() {
                         </p>
                       </div>
                       <div className="flex gap-3 md:gap-4">
-                        <Image src="/Cryptocurrency-footer.svg" alt="Bitcoin" width={44} height={44} className="w-9 h-9 md:w-11 md:h-11" />
-                        <Image src="/Cryptocurrency-1-footer.svg" alt="Ethereum" width={44} height={44} className="w-9 h-9 md:w-11 md:h-11" />
-                        <Image src="/Cryptocurrency-2-footer.svg" alt="Tether" width={44} height={44} className="w-9 h-9 md:w-11 md:h-11" />
+                        <Image
+                          src="/Cryptocurrency-footer.svg"
+                          alt="Bitcoin"
+                          width={44}
+                          height={44}
+                          className="w-9 h-9 md:w-11 md:h-11"
+                        />
+                        <Image
+                          src="/Cryptocurrency-1-footer.svg"
+                          alt="Ethereum"
+                          width={44}
+                          height={44}
+                          className="w-9 h-9 md:w-11 md:h-11"
+                        />
+                        <Image
+                          src="/Cryptocurrency-2-footer.svg"
+                          alt="Tether"
+                          width={44}
+                          height={44}
+                          className="w-9 h-9 md:w-11 md:h-11"
+                        />
                       </div>
                     </div>
 
@@ -146,8 +158,20 @@ export default function Footer() {
                         Классический способ оплаты
                       </p>
                       <div className="flex gap-3 md:gap-4">
-                        <Image src="/Logotypes-footer.svg" alt="Mastercard" width={62} height={44} className="h-9 md:h-11 w-auto" />
-                        <Image src="/Logotypes-1-footer.svg" alt="Visa" width={90} height={44} className="h-9 md:h-11 w-auto" />
+                        <Image
+                          src="/Logotypes-footer.svg"
+                          alt="Mastercard"
+                          width={62}
+                          height={44}
+                          className="h-9 md:h-11 w-auto"
+                        />
+                        <Image
+                          src="/Logotypes-1-footer.svg"
+                          alt="Visa"
+                          width={90}
+                          height={44}
+                          className="h-9 md:h-11 w-auto"
+                        />
                       </div>
                     </div>
                   </div>
@@ -162,5 +186,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

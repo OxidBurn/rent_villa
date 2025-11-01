@@ -1,7 +1,7 @@
-'use client';
+'use client'
 
-import CategoryCard from '@/components/cards/CategoryCard';
-import ScrollReveal from '@/components/ui/ScrollReveal';
+import CategoryCard from '@/components/cards/CategoryCard'
+import ScrollReveal from '@/components/ui/ScrollReveal'
 
 const collectionColumns = [
   [
@@ -11,7 +11,7 @@ const collectionColumns = [
       description: 'Менее чем в 50 м от пляжа.',
       image: '/michaela-rimakova-qag4XNmJtmk-unsplash 1.png',
       icon: '/water 1.svg',
-      aspectRatio: 'aspect-[580/430]'
+      aspectRatio: 'aspect-[580/430]',
     },
     {
       id: 'unique',
@@ -19,8 +19,8 @@ const collectionColumns = [
       description: 'Аренда виллы с неповторимым дизайном.',
       image: '/erik-mclean-x9QjqCCJLAA-unsplash 1.png',
       icon: '/bahai 1.svg',
-      aspectRatio: 'aspect-[580/320]'
-    }
+      aspectRatio: 'aspect-[580/320]',
+    },
   ],
   [
     {
@@ -29,7 +29,7 @@ const collectionColumns = [
       description: 'Самые роскошные варианты аренды.',
       image: '/ciudad-maderas-MXbM1NrRqtI-unsplash 1.png',
       icon: '/crown 1.svg',
-      aspectRatio: 'aspect-[580/320]'
+      aspectRatio: 'aspect-[580/320]',
     },
     {
       id: 'chalet',
@@ -37,10 +37,10 @@ const collectionColumns = [
       description: 'Роскошные апартаменты в горах.',
       image: '/zhu-yunxiao-jxGRh8pdcEQ-unsplash 1.png',
       icon: '/mountains 1.svg',
-      aspectRatio: 'aspect-[580/430]'
-    }
-  ]
-];
+      aspectRatio: 'aspect-[580/430]',
+    },
+  ],
+]
 
 export default function VillaCollections() {
   return (
@@ -58,16 +58,23 @@ export default function VillaCollections() {
 
         <div className="flex flex-col md:flex-row gap-6 md:gap-5 mb-8 md:mb-12">
           {collectionColumns.map((column, columnIndex) => (
-            <div key={columnIndex} className="flex flex-col gap-8 md:gap-12 flex-1 w-full md:w-auto md:max-w-none">
+            <div
+              key={columnIndex}
+              className="flex flex-col gap-8 md:gap-12 flex-1 w-full md:w-auto md:max-w-none"
+            >
               {column.map((collection, itemIndex) => (
-                <ScrollReveal key={collection.id} delay={columnIndex * 100 + itemIndex * 150} direction={columnIndex % 2 === 0 ? 'up' : 'down'}>
+                <ScrollReveal
+                  key={collection.id}
+                  delay={columnIndex * 100 + itemIndex * 150}
+                  direction={columnIndex % 2 === 0 ? 'up' : 'down'}
+                >
                   <CategoryCard
                     title={collection.title}
                     description={collection.description}
                     image={collection.image}
                     icon={collection.icon}
                     aspectRatio={collection.aspectRatio}
-                    onClick={() => console.log('Collection clicked:', collection.id)}
+                    onClick={() => {}}
                   />
                 </ScrollReveal>
               ))}
@@ -82,5 +89,5 @@ export default function VillaCollections() {
         </div>
       </div>
     </section>
-  );
+  )
 }

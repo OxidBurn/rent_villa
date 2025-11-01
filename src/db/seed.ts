@@ -2,7 +2,7 @@ import { db } from './client'
 import { properties, users } from './schema'
 
 async function seed() {
-  console.log('Seeding database...')
+  console.warn('Seeding database...')
 
   const [owner] = await db
     .insert(users)
@@ -12,7 +12,7 @@ async function seed() {
     })
     .returning()
 
-  console.log('Created owner:', owner)
+  console.warn('Created owner:', owner)
 
   const [property] = await db
     .insert(properties)
@@ -26,9 +26,9 @@ async function seed() {
     })
     .returning()
 
-  console.log('Created property:', property)
+  console.warn('Created property:', property)
 
-  console.log('Seeding completed successfully')
+  console.warn('Seeding completed successfully')
 }
 
 seed()
